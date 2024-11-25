@@ -9,6 +9,11 @@
 
 <body>
     <h1>Create the task</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Task</button>
+    </form>
 </body>
 
 </html>
