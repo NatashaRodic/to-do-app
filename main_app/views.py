@@ -13,7 +13,7 @@ def create(request):
     form = TaskForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('')
+        return redirect('home')
     return render(request, 'create.html', {'form': form})
 
 def details(request, task_id):
@@ -27,5 +27,10 @@ def update(request, task_id):
     form = TaskForm(request.POST or None, instance=task)
     if form.is_valid():
         form.save()
-        return redirect('')
+        return redirect('home')
     return render(request, 'update.html', {'form': form, 'task': task})
+
+def delete(request, task_id):
+    task = Task.objects.get(id=task_id)
+    task.delete()
+    return redirect('home')
