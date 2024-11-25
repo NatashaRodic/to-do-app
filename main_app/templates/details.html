@@ -11,6 +11,17 @@
 
     <h1>{{ task.title }}</h1>
     <p>{{ task.description }}</p>
+    <!-- Buttons for Update and Delete -->
+    <a href="{% url 'update' task.id %}">Update Task</a>
+
+    <form action="{% url 'delete' task.id %}" method="POST" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit">Delete Task</button>
+    </form>
+
+    <br>
+    <a href="{% url 'home' %}">Back to Home</a>
+
 </body>
 
 </html>
