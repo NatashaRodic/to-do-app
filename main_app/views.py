@@ -15,3 +15,9 @@ def create(request):
         form.save()
         return redirect('')
     return render(request, 'create.html', {'form': form})
+
+def details(request, task_id):
+    task = Task.objects.get(id=task_id)
+    return render(request, 'details.html', {
+        'task': task
+    })
