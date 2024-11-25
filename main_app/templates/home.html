@@ -9,6 +9,10 @@
 
 <body>
     <h1>Home Page</h1>
+    <ul> {% for task in tasks %}
+        <li>{{ task.title }}</li>
+        {% endfor %}
+    </ul>
 </body>
 
 </html>
