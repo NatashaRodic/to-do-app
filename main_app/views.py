@@ -7,3 +7,6 @@ def home(request):
     return render(request, 'home.html', {
         'tasks': tasks
     })
+
+def create (request):
+    
