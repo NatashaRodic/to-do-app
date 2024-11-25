@@ -10,11 +10,8 @@ def home(request):
     })
 
 def create(request):
-    if request.method == "POST":
-        form = TaskForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('todolist')
-    else:
-        form = TaskForm()
+    form = TaskForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('')
     return render(request, 'create.html', {'form': form})
